@@ -19,9 +19,9 @@ holiday_supplies[:spring][:memorial_day] << "#{supply}"
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
-  binding.pry
+
   
-  holiday_hash[:season][:holiday_name] => [:supply_array.to_s]
+  holiday_hash[season][holiday_name] = supply_array
 
 holiday_hash
 
