@@ -86,12 +86,12 @@ barbeque_array = []
     holidays.each do |holiday, supplies|
       if supplies.include?("BBQ")
         barbeque_array << holiday
-  end
+
     end
   end
+end
 
 barbeque_array.flatten
-end
 end
 
 
