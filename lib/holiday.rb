@@ -84,19 +84,21 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  capitalize_holiday = []
+
   holiday_hash.each do | season, holidays|
-  binding.pry
-    puts "#{season.capitalize}:"
+  #binding.pry
+    puts "#{ season.capitalize}:"
       holidays.each do |holiday, supplies|
-        holiday.to_s.split
-        capitalize_holiday << holiday.to_s.split
-        capitalize_holiday.each do |holiday|
-            puts "#{holiday.capitalize.join}"
+         #holiday.to_s.split("_")
+        #binding.pry
+         puts "  #{ holiday.to_s.split("_").map{|word| word.capitalize}.join(" ")}: #{supplies.join(", ") }"
+        #capitalize_holiday << holiday.to_s.split("_")
+      #  capitalize_holiday.each do |holiday|
+      #      puts "#{holiday.capitalize.join(" ")}"
         end
       end
   end
-end
+
 
 
 
@@ -105,4 +107,23 @@ def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
 
+  only_bbq = []
+  holiday_hash.each do|season, holiday|
+
+    holiday_hash[season].each do |holiday, supplies|
+      # at this level each holiday => symbol,
+      # at this level each supply => array
+      # i want to get to the holiday whose supply => array => value => BBQ
+        if supplies.include?("BBQ")
+          only_bbq << holiday
+     #binding.pry
+   end
+    #binding.pry
+      #holiday[supplies].include? ["BBQ"]
+     # supplies.collect do|item|
+      #binding.pry
+    end
+    #only wants seasons if :holiday_name => array values = [BBQ]
+  end
+  only_bbq
 end
